@@ -1,0 +1,271 @@
+<script>
+    /*
+class Osoba {
+  constructor(ime,prezime) {
+    if(this.constructor === Osoba ) {
+      throw new Error ('Osoba is abstract and can`t be created')
+    }
+    this.ime = ime
+    this.prezime = prezime
+  }
+}
+
+class Doktor extends Osoba {
+  constructor(ime,prezime,specijalnost) {
+    super(ime,prezime)
+    this.specijalnost = specijalnost
+    this.pacijenti = []
+    this.pregledi = []
+    Loger.logujKreiranjeDoktora(this)
+  }
+  
+  dodajPacijenta(pacijent) {
+    this.pacijenti.push(pacijent)
+  }
+  
+  zakaziPregled(pregled,pacijent){
+    this.pregledi.push(pregled)
+    
+  }
+}
+
+class Pacijent extends Osoba {
+  constructor(ime,prezime,jmbg,brojKartona) {
+    super(ime,prezime)
+    this.jmbg = jmbg
+    this.brojKartona = brojKartona
+    this.doktor = undefined
+    Loger.logujKreiranjePacijenta(this)
+  }
+  
+  izaberiDoktora(doktor) {
+    if(this.doktor){
+      throw new Error('Pacijent moze da ima samo 1 doktora')
+    }
+    this.doktor = doktor
+  }
+}
+
+class LaboratorijskiPregled {
+  constructor(datum,vreme) {
+    if(this.constructor === LaboratorijskiPregled ) {
+      throw new Error ('LaboratorijskiPregled is abstract and can`t be created')
+    }
+    this.datum = datum
+    this.vreme = vreme
+  }
+}
+
+class KrvniPritisak extends LaboratorijskiPregled {
+  constructor(datum,vreme,gornjaVrednost,donjaVrednost) {
+    super(datum,vreme)
+    this.gornjaVrednost = gornjaVrednost
+    this.donjaVrednost = donjaVrednost
+  }
+  obaviPregled(pacijent) {
+    
+  }
+}
+
+class NivoSecera extends LaboratorijskiPregled {
+  constructor (datum,vreme,vrednost,vremePoslednjegObroka) {
+    super(datum,vreme)
+    this.vrednost = vrednost
+    this.vremePoslednjegObroka = vremePoslednjegObroka
+  }
+  
+}
+
+class NivoHolesterola extends LaboratorijskiPregled {
+  constructor (datum,vreme) {
+    super(datum,vreme)
+    
+    
+  }
+}
+
+getCurrentTime = () => {
+    let date = new Date();
+    let dd = date.getDate();
+    let mm = date.getMonth()+1; 
+    let yyyy = date.getFullYear();
+    let hh = date.getHours(); 
+    let m = date.getMinutes();
+    //return `[${dd}.${mm}.${yyyy} ${hh}:${m}]`;
+    return '[ '+dd+'.'+mm+'.'+yyyy+' '+hh+':'+m+' ]';
+}
+
+class Loger {
+  constructor(){
+    
+  }
+  static logujKreiranjeDoktora(doktor) {
+    
+    console.log(getCurrentTime() + 'Doktor ' + doktor.ime + ' ' + doktor.prezime + ' je kreiran')
+  }
+  
+  static logujKreiranjePacijenta(pacijent) {
+    console.log(getCurrentTime() + 'Pacijent ' + pacijent.ime + ' ' + pacijent.prezime + ' je kreiran')
+  }
+  
+  static logujBiranjeLekara(pacijent,doktor) {
+    
+  }
+  
+  static logujObavljanjePregleda(pregled){
+    
+  }
+}
+
+var doktor = new Doktor('Petar','Petrovic','Ortopedija')
+var pacijent = new Pacijent('Marko','Markovic',14787,1241547)
+var holesterol = new NivoHolesterola()
+
+pacijent.izaberiDoktora(doktor)
+console.log(pacijent)
+doktor.dodajPacijenta(pacijent)
+console.log(doktor)
+*/
+
+// drugi zadatak
+/*
+function pinkyPromise(){
+  return new Promise((resolve,reject) => {
+    setTimeout(() =>{
+      Math.random() < 0.5
+        ? resolve('Success')
+        : reject(new Error('Something occured'))
+    },2000)
+  })
+}
+
+pinkyPromise()
+  .then(data => { console.log(data) })
+  .then(data => { console.log(data) })
+  .then(data => { console.log(data) })
+  .catch(error => {console.log(error)})
+
+Promise.all([pinkyPromise(),pinkyPromise()]).then(([res1,res2])=>{console.log(res1,res2)}).catch(err=>{console.log(err)})
+*/
+//treci zzzz
+
+// async pretvara funkciju u promise
+/*
+async function f() {
+    return 1
+}
+
+f().then(value => {console.log(value)})
+*/
+
+//cetvrti zadatak
+/*
+async function f() {
+    let promise = new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve('Success')
+        }, 3000)
+    })
+
+    let result = await promise
+    console.log(result)
+}
+
+f()
+*/
+/*
+function divide(x,y) {
+    if(y === 0) {
+        throw new Error('Devide by 0!')
+    }
+
+    return x / y
+}
+
+try {
+    let result = divide(2,0)
+} catch (error) {
+    console.log(error)
+}
+*/
+/*
+async function loadJson(url) {
+  return fetch(url)
+    .then(response => {
+      if (response.status == 200) {
+        return response.json()
+      } else {
+        throw new Error(response.status)
+      }
+    })
+}
+
+loadJson('no-such-user.json')
+  .catch(alert)
+*/
+/*
+async function getAPIData(url) {
+    try {
+        let firstResponse = await contentData(url)
+        let secondResponse = await secondContentData(firstResponse)
+        let thirdResponse = await thirdContentData(secondResponse)
+        return thirdResponse
+    } catch (error){
+        throw new Error(error)
+    }
+}
+
+//destruct
+
+const array = [1,2,3]
+
+const [first,second,third] = array
+
+console.log(first)
+
+//destruct - primer 2
+
+const person = {name:'Pera',lastName:'Peric',age:33}
+
+const {name,lastName,age} = person
+
+console.log(name)
+
+// destruct - primer 3
+
+const ime = person.name
+
+function logName({name}) {
+    console.log(name)
+}
+*/
+
+//
+/*
+let missingNumbers = [3,4]
+// sa ...(tri tacke) razbijamo niz na sastavne elemente
+let numbers = [1,2,...missingNumbers,5]
+
+console.log(numbers)
+*/
+/*
+function concatenate(...strings) {
+    return strings.reduce((accumulator,current) => accumulator += current,'')
+}
+
+console.log(concatenate('H','e','l','l','o',',',' ','w','o','r','l','d','!'))
+*/
+/*
+let array = [1,2,3,4,5]
+console.log(array)
+let arrayCopy = [...array];
+console.log(arrayCopy)
+
+function sum(...theArgs) {
+  return theArgs.reduce((previous, current) => {
+    return previous + current;
+  });
+}
+console.log(sum(1, 2, 3,5,8,16));
+*/
+</script>
